@@ -1,1 +1,6 @@
-
+var data=File.ReadAllBytes(@"D:\PowerBi\PowerMap_demo.xlsx"));
+  ImportFromExcel import = new ImportFromExcel();
+  import.LoadXlsx(data);
+  //first parameter it's the sheet number in the excel workbook
+  //second parameter it's the number of rows to skip at the start(we have an header in the file)
+  List<Product> output=import.ExcelToList<Product>(0,1);
